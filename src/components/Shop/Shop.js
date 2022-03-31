@@ -3,16 +3,18 @@ import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
 import "./Shop.css";
 import { addToDb, getStoredCart } from "../../utilities/fakeDbMine";
+import useProducts from "../../hooks/useProducts";
+import useCarts from "../../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useProducts();
+  const [cart, setCart] = useCarts(products);
 
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  /*
+  this code is inserted into useCarts hook
+  
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -27,6 +29,7 @@ const Shop = () => {
     }
     setCart(savedCart);
   }, [products]);
+  */
 
   const addToCartHandler = (selectedProduct) => {
     let newCart = [];
@@ -55,7 +58,11 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}>
+          <Link to="/orders">
+            <button>Review Order</button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );

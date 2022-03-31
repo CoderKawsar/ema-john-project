@@ -1,7 +1,8 @@
 import React from "react";
 import "./Cart.css";
 
-const Cart = ({ cart }) => {
+const Cart = (props) => {
+  const { cart } = props;
   let total = 0;
   let shipping = 0;
   let quantity = 0;
@@ -12,6 +13,7 @@ const Cart = ({ cart }) => {
   }
   let tax = parseFloat((total * 0.1).toFixed(2));
   let grandTotal = total + shipping + tax;
+
   return (
     <div className="cart">
       <h2 style={{ textAlign: "center" }}>Order Summary</h2>
@@ -22,6 +24,7 @@ const Cart = ({ cart }) => {
       <p>
         <big>Grand Total: {grandTotal.toFixed(2)}</big>
       </p>
+      {props.children}
     </div>
   );
 };
