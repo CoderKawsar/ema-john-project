@@ -1,0 +1,92 @@
+.form-container {
+  width: 600px;
+  border: 1px solid #95a0a7;
+  border-radius: 8px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-title {
+  font-size: 35px;
+  color: #2a414f;
+  font-weight: 400;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 17px;
+  line-height: 20.4px;
+  color: #2a414f;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.input-group input {
+  width: 415px;
+  height: 55px;
+  border: 1px solid #95a0a7;
+  border-radius: 5px;
+  padding: 0px 10px;
+  font-size: 24px;
+  box-sizing: border-box;
+}
+
+.form-submit {
+  width: 415px;
+  height: 55px;
+  color: #0e161a;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.0015em;
+  background-color: rgba(255, 153, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  background-color: rgba(255, 153, 0, 0.5);
+}
+
+.error {
+  color: red;
+}
+
+.form-link {
+  color: #ff9900;
+  text-decoration: none;
+}
+
+.line-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  background-color: #95a0a7;
+  height: 1px;
+  width: 145px;
+}
+
+.line-div p {
+  margin: 0px 20px;
+  color: #95a0a7;
+  font-size: 17px;
+  line-height: 20.4px;
+}
+
+.google-btn {
+  width: 415px;
+  height: 55px;
+  border: 1px solid #95a0a7;
+  margin: 30px 0;
+  font-size: 17px;
+  cursor: pointer;
+}
