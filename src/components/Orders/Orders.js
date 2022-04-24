@@ -8,7 +8,7 @@ import ReviewItem from "../ReviewItem/ReviewItem";
 
 const Orders = () => {
   const [products, setProdcts] = useProducts();
-  const [cart, setCart] = useCarts(products);
+  const [cart, setCart] = useCarts();
 
   const navigate = useNavigate();
 

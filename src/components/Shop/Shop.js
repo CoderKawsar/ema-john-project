@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
 import "./Shop.css";
-import { addToDb, getStoredCart } from "../../utilities/fakeDbMine";
-import useProducts from "../../hooks/useProducts";
+import { addToDb } from "../../utilities/fakeDbMine";
 import useCarts from "../../hooks/useCart";
 import { Link } from "react-router-dom";
 
 const Shop = () => {
-  // const [products, setProducts] = useProducts();
   const [products, setProducts] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [activePage, setActivePage] = useState(0);
   const [productPerPage, setProductPerPage] = useState(10);
-  const [cart, setCart] = useCarts(products);
+  const [cart, setCart] = useCarts();
 
   useEffect(() => {
     fetch(
@@ -30,26 +28,6 @@ const Shop = () => {
         setPageCount(Math.ceil(data.count / 10));
       });
   }, []);
-
-  /*
-  this code is inserted into useCarts hook
-  
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    const storedCart = getStoredCart();
-    const savedCart = [];
-    for (const id in storedCart) {
-      const addedProduct = products.find((product) => product._id === id);
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedCart.push(addedProduct);
-      }
-    }
-    setCart(savedCart);
-  }, [products]);
-  */
 
   const addToCartHandler = (selectedProduct) => {
     let newCart = [];
